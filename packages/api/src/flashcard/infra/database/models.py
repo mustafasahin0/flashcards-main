@@ -9,7 +9,7 @@ class Flashcard(models.Model):
     question = models.CharField(max_length=255)
     answer = models.TextField()
     category = models.ForeignKey(CategoryModel, on_delete=models.CASCADE)
-    slug = models.SlugField(unique=True, blank=True)
+    slug = models.SlugField(unique=True, blank=True, max_length=255)
 
     def clean(self) -> None:
         if len(self.question) < 5:

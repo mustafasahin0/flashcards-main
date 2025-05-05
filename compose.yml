@@ -50,6 +50,7 @@ services:
       - app-network
     environment:
       - DB_HOST=db
+      - GROQ_API_KEY=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
 
     depends_on:
       db:
