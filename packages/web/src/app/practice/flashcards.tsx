@@ -35,6 +35,16 @@ export default function Flashcards({ category }: { category: Category }) {
 
   const flashcards = data as Flashcard[];
 
+  if (flashcards.length === 0) {
+    return (
+      <Card className="w-full max-w-md">
+        <CardContent>
+          No flashcards available for this category.
+        </CardContent>
+      </Card>
+    );
+  }
+
   const displayedFlashcards = useMemo(
     () => shuffleArray(flashcards),
     [flashcards],

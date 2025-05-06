@@ -21,6 +21,15 @@ import { Suspense, useState } from 'react';
 import Flashcards from './flashcards';
 
 export default function Practice({ categories }: { categories: Category[] }) {
+  if (!categories || categories.length === 0) {
+    return (
+      <div className='flex flex-col items-center justify-start gap-12'>
+        <Card>
+          <CardContent>No categories available.</CardContent>
+        </Card>
+      </div>
+    );
+  }
   const [selectedCategory, setSelectedCategory] = useState<Category>(
     categories[0]
   );
